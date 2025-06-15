@@ -1,0 +1,90 @@
+:host {
+  display: block;
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background-color: #fff8f0;
+  border-radius: 1.5rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Rokkitt', serif;
+}
+
+.titulo-pedido {
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #333;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f4f4f4;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.item p {
+  margin: 0;
+  font-size: 1.6rem;
+  flex: 1;
+  color: #444;
+}
+
+.total {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: right;
+  margin: 2rem 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+label {
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: #333;
+}
+
+textarea,
+select {
+  padding: 1rem;
+  font-size: 1.6rem;
+  border-radius: 1.2rem;
+  border: 1px solid #ccc;
+  resize: vertical;
+  font-family: inherit;
+}
+
+button[type="submit"] {
+  padding: 1rem 2rem;
+  background-color: #ffb600;
+  border: none;
+  border-radius: 1rem;
+  color: #000;
+  font-size: 1.6rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: center;
+}
+
+button[type="submit"]:hover {
+  background-color: #e0a800;
+}
+
+.mensaje {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: green;
+  text-align: center;
+  margin-top: 2rem;
+}

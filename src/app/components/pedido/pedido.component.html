@@ -1,0 +1,30 @@
+<div class="pedido-container">
+<h2 class="titulo-pedido">📦 Revisa tu pedido 📦</h2>
+
+<div *ngFor="let item of cesta">
+  <p><strong>{{ item.nombre }}</strong> - {{ item.precio | number:'1.2-2' }} € x {{ item.cantidad }}</p>
+</div>
+
+<p>Total: {{ total() | number:'1.2-2' }} €</p>
+
+<form (ngSubmit)="enviarPedido()">
+  <div>
+    <label for="direccion">Dirección de envío:</label>
+    <textarea id="direccion" [(ngModel)]="direccion" name="direccion" required></textarea>
+  </div>
+
+  <div>
+    <label for="metodo">Método de pago:</label>
+    <select id="metodo" [(ngModel)]="metodoPago" name="metodoPago" required>
+      <option value="efectivo">Efectivo</option>
+      <option value="tarjeta">Tarjeta</option>
+    </select>
+  </div>
+
+  <button type="submit">Confirmar pedido</button>
+</form>
+
+<p *ngIf="mensaje" style="color: green; font-weight: bold; margin-top: 10px;">
+  {{ mensaje }}
+</p>
+</div>

@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg custom-navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center ms-4" routerLink="/">
+      <img src="assets/logo1.png" alt="Logo" width="60" height="60" class="me-3">
+      <span>Sr. Burguer</span>
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link active d-flex align-items-center" routerLink="/">
+            <img src="assets/casa.svg" alt="home" class="me-2">
+            <span>Home</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link d-flex align-items-center" routerLink="/menu">
+            <img src="assets/sucursales.svg" alt="menu" class="me-2">
+            <span>Menu</span>
+          </a>
+        </li>
+
+        <!--Usuario NO autenticado -->
+        <li class="nav-item dropdown" *ngIf="!authService.estaAutenticado()">
+          <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="assets/user.svg" alt="" class="me-2">
+            <span>Área del cliente</span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="/registro">Registrarse</a></li>
+            <li><a class="dropdown-item" routerLink="/login">Iniciar sesión</a></li>
+          </ul>
+        </li>
+
+        <!--Usuario autenticado -->
+        <li class="nav-item dropdown" *ngIf="authService.estaAutenticado()">
+          <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="assets/user.svg" alt="" class="me-2">
+            <span>Mi cuenta</span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="/perfil">Mi cuenta</a></li>
+            <li><button class="dropdown-item" (click)="cerrarSesion()">Cerrar sesión</button></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link d-flex align-items-center" routerLink="/cesta">
+            <img src="assets/cesta.svg" alt="cesta" class="me-2">
+            <span>Cesta</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

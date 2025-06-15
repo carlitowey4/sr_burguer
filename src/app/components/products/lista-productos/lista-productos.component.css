@@ -1,0 +1,45 @@
+.categoria {
+  margin-bottom: 4rem;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background-color: #fff8e1;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.toggle-btn {
+  background-color: #ffb600;
+  border: none;
+  padding: 1.5rem;
+  font-size: 2.4rem;
+  font-family: 'Rokkitt', serif;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  position: relative;
+  border-radius: 1.5rem 1.5rem 0 0;
+  color: #333;
+}
+
+.toggle-btn span {
+  position: absolute;
+  right: 2rem;
+  transition: transform 0.3s;
+  font-size: 2rem;
+}
+
+.toggle-btn span.rotate {
+  transform: rotate(180deg);
+}
+
+.productos-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+
+
+  justify-content: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}

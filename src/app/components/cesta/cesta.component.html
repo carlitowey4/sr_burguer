@@ -1,0 +1,16 @@
+<h2 class="titulo-cesta">🛒 Tu Cesta 🛒</h2>
+<div *ngIf="cesta.length === 0">
+  <p>Tu cesta está vacía.</p>
+</div>
+
+<div *ngIf="cesta.length > 0">
+  <div *ngFor="let item of cesta" class="item">
+    <p><strong>{{ item.nombre }}</strong> - {{ item.precio * item.cantidad | number:'1.2-2' }} € x {{ item.cantidad }}</p>
+    <button (click)="eliminarProducto(item.id)">Eliminar</button>
+  </div>
+
+  <p class="total">Total: {{ total() | number:'1.2-2' }} €</p>
+  <button (click)="irAPedido()">Hacer pedido</button>
+  <button (click)="vaciarCesta()">Vaciar cesta</button>
+</div>
+

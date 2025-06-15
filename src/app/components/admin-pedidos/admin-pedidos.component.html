@@ -1,0 +1,19 @@
+<h2>Pedidos recientes (últimas 24h)</h2>
+
+<div *ngFor="let pedido of pedidos" class="pedido-card">
+  <p><strong>ID Pedido:</strong> {{ pedido.id }}</p>
+  <p><strong>Usuario:</strong> {{ pedido.nombre_usuario }}</p>
+  <p><strong>Dirección:</strong> {{ pedido.direccion_envio }}</p>
+  <p><strong>Total:</strong> {{ pedido.total | number:'1.2-2' }} €</p>
+  <p><strong>Estado:</strong> {{ pedido.estado }}</p>
+  <p><strong>Fecha:</strong> {{ pedido.fecha | date:'dd/MM/yyyy HH:mm'  }}</p>
+
+  <select [(ngModel)]="pedido.nuevo_estado">
+    <option value="pendiente">pendiente</option>
+    <option value="preparación">preparación</option>
+    <option value="enviado">enviado</option>
+    <option value="entregado">entregado</option>
+  </select>
+
+  <button (click)="cambiarEstado(pedido)">Actualizar estado</button>
+</div>

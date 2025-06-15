@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Rokkitt:wght@400;600&display=swap');
+
+.hero {
+    background-image: url(../../../../public/assets/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vh;
+    position: relative;
+    padding-bottom: 2rem;
+  }
+    
+  .hero__logo {
+    width: 20rem;
+  }
+    
+  .contenido__hero {
+    position: absolute;
+    background-color: rgb(0 0 0 / 60%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+    
+  .hero__logoTextos {
+    color: white;
+    font-size: 3rem;
+    width: min-content;
+    text-align: center;
+    font-size: 4rem;
+  }
+  
+  @media screen and (max-width: 1024px) {
+  
+    .hero {
+      height: 55vh;
+    }
+  
+    .hero__logo {
+      width: 10rem;
+    }
+  
+  }
+
+  .bg__main {
+    background-color:  #ffb600;
+    
+  }
+  
+  .main__tittle {
+    font-family: 'Lato', sans-serif;
+    max-width: min-content;
+    padding-top: 5rem;
+    font-size: 6rem;
+    margin: 0 18rem 4.8rem;   
+  }
+  
+  .main__container {
+    width: calc(100% - 4rem);
+    font-size: 2.5rem;
+    margin: auto;
+  }
+  
+  .main__tittle--nosotros {
+    font-weight: bold;
+    color:black;
+  }
+  
+  .main__tittle--sobre {
+    font-weight: bold;
+    color: black;
+  }
+  
+  .main__tittle--sobre,
+  .main__tittle--nosotros {
+  display: block;
+  }
+  
+  .main__lineTittle {
+    border-bottom: 0.4rem solid black;
+    width: 12rem;
+    margin-top: 0.6rem;
+  }
+  
+  .main__icon {
+    width: 3.5rem;
+    margin-left: 1rem;
+    color: black;
+  }
+  
+  .main__contentTittle{
+    display: flex;
+    align-items: center;
+  }
+
+  .main__contentTittle h3{
+    font-size: 4rem;
+    font-weight: 900;
+    margin: 0;
+  }
+  
+  .main__contenido {
+    display: grid;
+    flex-direction: column;
+    align-items: center;
+    grid-template-columns: repeat(2, 48%);
+    justify-content: center;
+    gap: 5rem;
+  }
+
+
+@media screen and (max-width: 1024px) {
+  .main__contenido {
+    grid-template-columns: 100%; 
+  }
+
+  .main__tittle {
+    margin: 0 2rem 2rem; 
+    font-size: 4rem; 
+  }
+
+  .main__container {
+    width: 90%;
+  }
+
+}
+
+.contenedor_galeria {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  justify-content: center;
+  align-items: center;
+  max-width: 300rem;
+}
+  
+.imagen_galeria {
+  width: 96%;
+  border: solid white 4px;
+  border-radius: 1rem;
+}
+
+.galeria{
+  background-color: #ffb600;
+}
+
+.imagen_contenedor {
+    position: relative;
+}
+
+.nombre_hamburguesa {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 0.5rem;
+    font-weight: bold;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    border-radius: 1rem;
+}
+
+.pedido_btn {
+  background-color: #f1ecec;
+  color: black;
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  border: solid;
+  border-radius: 2rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  font-weight: bold;
+  width: 40%;
+}
+
+.pedido_btn:hover {
+  transform: scale(1.2);
+}
+
+.boton_galeria {
+  padding-top: 5rem;
+  text-align: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .contenedor_galeria {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  .imagen_contenedor {
+    width: 60%;
+    margin: auto;
+  }
+
+  .imagen_galeria {
+    width: 100%;
+    border: solid white 4px;
+    border-radius: 1rem;
+  }
+}

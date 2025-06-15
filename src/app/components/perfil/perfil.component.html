@@ -1,0 +1,75 @@
+<div class="perfil-container">
+  <h2>Mi Perfil</h2>
+
+  <div *ngIf="usuario">
+    <p><strong>Nombre:</strong> {{ usuario.nombre }}</p>
+    <p><strong>Email:</strong> {{ usuario.email }}</p>
+    <p><strong>Dirección:</strong> {{ usuario.direccion }}</p>
+    <p><strong>Miembro desde:</strong> {{ usuario.fecha_registro | date:'dd/MM/yyyy HH:mm' }}</p>
+
+    <button (click)="modoEdicion = !modoEdicion">{{ modoEdicion ? 'Cancelar' : 'Editar Perfil' }}</button>
+
+    <div *ngIf="modoEdicion">
+      <form (ngSubmit)="guardarCambios()" #formPerfil="ngForm">
+        <label>Nombre:
+          <input type="text" [(ngModel)]="usuarioMod.nombre" name="nombre" required>
+        </label>
+        <label>Dirección:
+          <textarea [(ngModel)]="usuarioMod.direccion" name="direccion"></textarea>
+        </label>
+        <label>Nueva Contraseña:
+          <input type="password" [(ngModel)]="usuarioMod.password" name="password">
+        </label>
+        <button type="submit">Guardar Cambios</button>
+      </form>
+    </div>
+  </div>
+
+  <hr>
+
+    <div *ngIf="pedidosEnProceso.length > 0">
+    <h3>Pedidos en Proceso</h3>
+    <ul>
+        <li *ngFor="let pedido of pedidosEnProceso" class="pedido-card">
+        <div (click)="pedido.mostrarDetalles = !pedido.mostrarDetalles" style="cursor: pointer;">
+            <strong>Pedido </strong> - {{ pedido.estado }} - 
+            {{ pedido.fecha | date:'dd/MM/yyyy HH:mm' }}
+            <span *ngIf="pedido.mostrarDetalles">▲</span>
+            <span *ngIf="!pedido.mostrarDetalles">▼</span>
+        </div>
+
+        <div *ngIf="pedido.mostrarDetalles" class="pedido-detalles">
+            <ul>
+            <li *ngFor="let producto of pedido.productos">
+                {{ producto.nombre }} (x{{ producto.cantidad }}) - {{ producto.subtotal }}€
+            </li>
+            </ul>
+            <button (click)="repetirPedido(pedido)">Repetir Pedido</button>
+        </div>
+        </li>
+    </ul>
+    </div>
+
+
+  <h3>Últimos Pedidos</h3>
+<ul>
+  <li *ngFor="let pedido of pedidos" class="pedido-card">
+    <div (click)="pedido.mostrarDetalles = !pedido.mostrarDetalles" style="cursor: pointer;">
+      <strong>Pedido </strong> - Total: {{ pedido.total }}€ - 
+      {{ pedido.fecha | date:'dd/MM/yyyy HH:mm' }}
+      <span *ngIf="pedido.mostrarDetalles">▲</span>
+      <span *ngIf="!pedido.mostrarDetalles">▼</span>
+    </div>
+
+    <div *ngIf="pedido.mostrarDetalles" class="pedido-detalles">
+      <ul>
+        <li *ngFor="let producto of pedido.productos">
+          {{ producto.nombre }} (x{{ producto.cantidad }}) - {{ producto.subtotal }}€
+        </li>
+      </ul>
+      <button (click)="repetirPedido(pedido)">Repetir Pedido</button>
+    </div>
+  </li>
+</ul>
+
+</div>

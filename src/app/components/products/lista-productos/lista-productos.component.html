@@ -1,0 +1,10 @@
+<div class="categoria">
+  <button (click)="toggle()" class="toggle-btn">
+    {{ tipo | titlecase }}s
+    <span [ngClass]="{ 'rotate': isOpen }">&#9660;</span>
+  </button>
+
+  <div *ngIf="isOpen" class="productos-container">
+    <app-producto *ngFor="let producto of productosFiltrados" [producto]="producto"></app-producto>
+  </div>
+</div>
